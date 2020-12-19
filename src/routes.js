@@ -16,7 +16,6 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
 import UserProfile from "views/UserProfile.js";
 
@@ -33,12 +32,12 @@ var routes = [
   //   icon: "tim-icons icon-atom",
   //   component: Icons,
   // },
-  {
-    path: "/map",
-    name: "Map",
-    icon: "tim-icons icon-pin",
-    component: Map,
-  },
+  // {
+  //   path: "/map",
+  //   name: "Map",
+  //   icon: "tim-icons icon-pin",
+  //   component: Map,
+  // },
   {
     path: "/notifications",
     name: "Notifications",
