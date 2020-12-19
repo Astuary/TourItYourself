@@ -24,6 +24,26 @@ const MapWrapper = () => {
 
     const myLatlng = new google.maps.LatLng(lat, lng);
 
+    // fetch('https://api.radar.io/v1/track', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json, text/plain, /',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    //   },
+    //   body: JSON.stringify({
+    //     deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', 
+    //     userId: '1', 
+    //     latitude: lat, 
+    //     longitude: lng, 
+    //     accuracy: '65'
+    //   })
+    // }).then(response => response.json())
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => console.log(err));
+
     const mapOptions = {
       center: myLatlng,
       zoom: 20,

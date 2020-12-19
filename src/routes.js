@@ -16,11 +16,8 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Icons from "views/Icons.js";
 import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
-import TableList from "views/TableList.js";
-import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
 
 var routes = [
@@ -30,12 +27,12 @@ var routes = [
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
   },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "tim-icons icon-atom",
-    component: Icons,
-  },
+  // {
+  //   path: "/icons",
+  //   name: "Icons",
+  //   icon: "tim-icons icon-atom",
+  //   component: Icons,
+  // },
   {
     path: "/map",
     name: "Map",
@@ -54,17 +51,17 @@ var routes = [
     icon: "tim-icons icon-single-02",
     component: UserProfile,
   },
-  {
-    path: "/tables",
-    name: "Table List",
-    icon: "tim-icons icon-puzzle-10",
-    component: TableList,
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "tim-icons icon-align-center",
-    component: Typography,
-  },
+  // {
+  //   path: "/tables",
+  //   name: "Table List",
+  //   icon: "tim-icons icon-puzzle-10",
+  //   component: TableList,
+  // },
+  // {
+  //   path: "/typography",
+  //   name: "Typography",
+  //   icon: "tim-icons icon-align-center",
+  //   component: Typography,
+  // },
 ];
 export default routes;

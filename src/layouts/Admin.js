@@ -28,7 +28,6 @@ import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 var ps;
@@ -89,14 +88,6 @@ function Admin(props) {
       );
     });
   };
-  const getBrandText = (path) => {
-    for (let i = 0; i < routes.length; i++) {
-      if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
-        return routes[i].name;
-      }
-    }
-    return "Brand";
-  };
   return (
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
@@ -104,16 +95,11 @@ function Admin(props) {
           <div className="wrapper">
             <Sidebar
               routes={routes}
-              logo={{
-                outterLink: "https://www.creative-tim.com/",
-                text: "Creative Tim",
-                imgSrc: logo,
-              }}
               toggleSidebar={toggleSidebar}
             />
             <div className="main-panel" ref={mainPanelRef} data={color}>
               <AdminNavbar
-                brandText={getBrandText(location.pathname)}
+                brandText={"Tour Radar"}
                 toggleSidebar={toggleSidebar}
                 sidebarOpened={sidebarOpened}
               />
