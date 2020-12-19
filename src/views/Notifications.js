@@ -86,16 +86,16 @@ function Notifications() {
                 <CardTitle tag="h4">Notifications Style</CardTitle>
               </CardHeader>
               <CardBody>
-                <Alert color="info">
-                  <span>This is a plain notification</span>
+                <Alert color="success">
+                  <span>Your review for the &lt;product/service name&gt; has been noted. Happy exploring!</span>
                 </Alert>
                 <UncontrolledAlert color="info">
-                  <span>This is a notification with close button.</span>
+                  <span>Click <a href="" style={{color:"#344675"}}>here</a> to review &lt;place name&gt; you just visited.</span>
                 </UncontrolledAlert>
-                <UncontrolledAlert className="alert-with-icon" color="info">
+                <UncontrolledAlert className="alert-with-icon" color="warning">
                   <span className="tim-icons icon-bell-55" data-notify="icon" />
                   <span data-notify="message">
-                    This is a notification with close button and icon.
+                    The credit card connected to this app is being transitted away from your current location.
                   </span>
                 </UncontrolledAlert>
                 <UncontrolledAlert className="alert-with-icon" color="info">
@@ -149,7 +149,7 @@ function Notifications() {
               </CardBody>
             </Card>
           </Col>
-          <Col md="12">
+          {/*<Col md="12">
             <Card>
               <CardBody>
                 <div className="places-buttons">
@@ -230,7 +230,7 @@ function Notifications() {
                 </div>
               </CardBody>
             </Card>
-          </Col>
+          </Col>*/}
         </Row>
       </div>
     </>

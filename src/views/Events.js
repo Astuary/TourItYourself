@@ -20,7 +20,7 @@ import React from "react";
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
-function Icons() {
+function Events() {
   return (
     <>
       <div className="content">
@@ -28,11 +28,11 @@ function Icons() {
           <Col md="12">
             <Card>
               <CardHeader>
-                <h5 className="title">100 Awesome Nucleo Icons</h5>
-                <p className="category">
+                <h4 className="title">The common events nearby you...</h4>
+                {/*<p className="category">
                   Handcrafted by our friends from{" "}
                   <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a>
-                </p>
+                </p>*/}
               </CardHeader>
               <CardBody className="all-icons">
                 <Row>
@@ -42,9 +42,12 @@ function Icons() {
                     md="3"
                     sm="4"
                   >
+                    {/**/}
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-alert-circle-exc" />
-                      <p>icon-alert-circle-exc</p>
+                      <i className="tim-icons icon-basket-simple" />
+                      <p>50% Discount</p>
+                      <h6>24th Dec 2020 - 5th Jan 2021</h6>
+                      Antonio's Pizza
                     </div>
                   </Col>
                   <Col
@@ -54,8 +57,10 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-align-center" />
-                      <p>icon-align-center</p>
+                      <i className="tim-icons icon-bus-front-12" />
+                      <p>Christmas Food Drive</p>
+                      <h6>23rd Dec, 2020</h6>
+                      Amherst Center
                     </div>
                   </Col>
                   <Col
@@ -65,8 +70,52 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-align-left-2" />
-                      <p>icon-align-left-2</p>
+                      <i className="tim-icons icon-cart" />
+                      <p>Trade-show</p>
+                      <h6>11th Jan, 2021</h6>
+                      Townhall
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-controller" />
+                      <p>Arcade Gaming Event</p>
+                      <h6>3rd Jan, 2021</h6>
+                      Townhall Indoor Sports Area
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-heart-2" />
+                      <p>Free Health Check-up</p>
+                      <h6>1st - 10th Jan, 2021</h6>
+                      All CVS Pharmacies
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-support-17" />
+                      <p>Garage Sale</p>
+                      <h6>21st - 31st Dec, 2020</h6>
+                      67 Grey St
                     </div>
                   </Col>
                   <Col
@@ -76,8 +125,54 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-app" />
-                      <p>icon-app</p>
+                      <i className="tim-icons icon-headphones" />
+                      <p>Standup and DJ Night</p>
+                      <h6>21st Dec, 2020</h6>
+                      Arts Hall
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-palette" />
+                      <p>Free-hand Drawing Competition</p>
+                      <h6>10th Jan 2021</h6>
+                      Recreational Center
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-planet" />
+                      <p>Stargazing Event</p>
+                      <h6>4th Jan, 2021</h6>
+                      Amherst Commons
+                    </div>
+                    
+                  </Col>
+                  <Col
+                    className="font-icon-list col-xs-6 col-xs-6"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                  >
+                    <div className="font-icon-detail">
+                      <i className="tim-icons icon-satisfied" />
+                      <p>Comic Poetry Open-mic</p>
+                      <h6>7th Jan, 2021</h6>
+                      Recreational Center
                     </div>
                   </Col>
                   <Col
@@ -87,9 +182,12 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-atom" />
-                      <p>icon-atom</p>
+                      <i className="tim-icons icon-volume-98" />
+                      <p>Electronics Sale</p>
+                      <h6>1st Jan 2021</h6>
+                      Bestbuy
                     </div>
+                   
                   </Col>
                   <Col
                     className="font-icon-list col-xs-6 col-xs-6"
@@ -98,30 +196,10 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-attach-87" />
-                      <p>icon-attach-87</p>
-                    </div>
-                  </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-badge" />
-                      <p>icon-badge</p>
-                    </div>
-                  </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-bag-16" />
-                      <p>icon-bag-16</p>
+                      <i className="tim-icons icon-puzzle-10" />
+                      <p>Treasure Hunt</p>
+                      <h6>14th Jan, 2021</h6>
+                      Starts at Center Park
                     </div>
                   </Col>
                   <Col
@@ -142,8 +220,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-basket-simple" />
-                      <p>icon-basket-simple</p>
+                      <i className="tim-icons icon-alert-circle-exc" />
+                      <p>icon-alert-circle-exc</p>
                     </div>
                   </Col>
                   <Col
@@ -219,8 +297,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-bus-front-12" />
-                      <p>icon-bus-front-12</p>
+                      <i className="tim-icons icon-align-center" />
+                      <p>icon-align-center</p>
                     </div>
                   </Col>
                   <Col
@@ -274,8 +352,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-cart" />
-                      <p>icon-cart</p>
+                      <i className="tim-icons icon-align-left-2" />
+                      <p>icon-align-left-2</p>
                     </div>
                   </Col>
                   <Col
@@ -373,8 +451,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-controller" />
-                      <p>icon-controller</p>
+                      <i className="tim-icons icon-app" />
+                      <p>icon-app</p>
                     </div>
                   </Col>
                   <Col
@@ -439,8 +517,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-headphones" />
-                      <p>icon-headphones</p>
+                      <i className="tim-icons icon-attach-87" />
+                      <p>icon-attach-87</p>
                     </div>
                   </Col>
                   <Col
@@ -450,8 +528,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-heart-2" />
-                      <p>icon-heart-2</p>
+                      <i className="tim-icons icon-atom" />
+                      <p>icon-atom</p>
                     </div>
                   </Col>
                   <Col
@@ -659,8 +737,8 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-palette" />
-                      <p>icon-palette</p>
+                      <i className="tim-icons icon-badge" />
+                      <p>icon-badge</p>
                     </div>
                   </Col>
                   <Col
@@ -692,21 +770,11 @@ function Icons() {
                     sm="4"
                   >
                     <div className="font-icon-detail">
-                      <i className="tim-icons icon-planet" />
-                      <p>icon-planet</p>
+                      <i className="tim-icons icon-bag-16" />
+                      <p>icon-bag-16</p>
                     </div>
                   </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-puzzle-10" />
-                      <p>icon-puzzle-10</p>
-                    </div>
-                  </Col>
+                  
                   <Col
                     className="font-icon-list col-xs-6 col-xs-6"
                     lg="2"
@@ -718,28 +786,7 @@ function Icons() {
                       <p>icon-pencil</p>
                     </div>
                   </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-satisfied" />
-                      <p>icon-satisfied</p>
-                    </div>
-                  </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-scissors" />
-                      <p>icon-scissors</p>
-                    </div>
-                  </Col>
+                  
                   <Col
                     className="font-icon-list col-xs-6 col-xs-6"
                     lg="2"
@@ -839,17 +886,7 @@ function Icons() {
                       <p>icon-square-pin</p>
                     </div>
                   </Col>
-                  <Col
-                    className="font-icon-list col-xs-6 col-xs-6"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                  >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-support-17" />
-                      <p>icon-support-17</p>
-                    </div>
-                  </Col>
+                  
                   <Col
                     className="font-icon-list col-xs-6 col-xs-6"
                     lg="2"
@@ -999,9 +1036,9 @@ function Icons() {
                     md="3"
                     sm="4"
                   >
-                    <div className="font-icon-detail">
-                      <i className="tim-icons icon-volume-98" />
-                      <p>icon-volume-98</p>
+                     <div className="font-icon-detail">
+                      <i className="tim-icons icon-scissors" />
+                      <p>icon-scissors</p>
                     </div>
                   </Col>
                   <Col
@@ -1146,4 +1183,4 @@ function Icons() {
   );
 }
 
-export default Icons;
+export default Events;

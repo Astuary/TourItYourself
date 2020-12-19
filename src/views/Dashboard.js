@@ -16,10 +16,6 @@
 
 */
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
 
 // reactstrap components
 import {
@@ -42,154 +38,382 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-// core components
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
-} from "variables/charts.js";
+import Slider from "components/Slider/Slider";
 
-function Dashboard(props) {
-  const [bigChartData, setbigChartData] = React.useState("data1");
-  const setBgChartData = (name) => {
-    setbigChartData(name);
-  };
+function calculateDistance(x1, y1, x2, y2){
+  fetch('https://api.radar.io/v1/route/distance?origin='+x1+','+y1+',-73.97536&destination='+x2+','+y2+'&modes=foot,car&units=metric', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+}
+
+const MapWrapper = () => {
+  const mapRef = React.useRef(null);
+  React.useEffect(() => {
+
+    let lat = '42.37653665195455';
+    let lng = '-72.51931728157159';
+    console.log(JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'}))
+
+    fetch('https://api.radar.io/v1/track', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      body: JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'})
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
+    fetch('https://api.radar.io/v1/context?coordinates='+lat+','+lng, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
+    let google = window.google;
+    let map = mapRef.current;
+    
+    const myLatlng = new google.maps.LatLng(lat, lng);
+    const mapOptions = {
+      center: myLatlng,
+      zoom: 19,
+      scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+      styles: [
+        {
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#8ec3b9",
+            },
+          ],
+        },
+        {
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1a3646",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.country",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#4b6878",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.land_parcel",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#64779e",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.province",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#4b6878",
+            },
+          ],
+        },
+        {
+          featureType: "landscape.man_made",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#334e87",
+            },
+          ],
+        },
+        {
+          featureType: "landscape.natural",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#283d6a",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#6f9ba5",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "poi.park",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "poi.park",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#3C7680",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#304a7d",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#98a5be",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#2c6675",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#9d2a80",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#9d2a80",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#b0d5ce",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#98a5be",
+            },
+          ],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "transit.line",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#283d6a",
+            },
+          ],
+        },
+        {
+          featureType: "transit.station",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#3a4762",
+            },
+          ],
+        },
+        {
+          featureType: "water",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#0e1626",
+            },
+          ],
+        },
+        {
+          featureType: "water",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#4e6d70",
+            },
+          ],
+        },
+      ],
+    };
+
+    map = new google.maps.Map(map, mapOptions);
+
+    const marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      title: "BLK Design System PRO React!",
+    });
+
+    const contentString =
+      '<div class="info-window-content"><h2>BLK Dashboard React</h2>' +
+      "<p>A freebie Admin for ReactStrap, Bootstrap, React, and React Hooks.</p></div>";
+
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+
+    const cityCircle = new google.maps.Circle({
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#6a8dd4",
+      fillOpacity: 0.35,
+      map,
+      center: myLatlng,
+      radius: 40,
+    });
+
+    const markers = [new google.maps.LatLng(42.37673983059261, -72.51928473087418), new google.maps.LatLng(42.376615582633356, -72.51969637982289), new google.maps.LatLng(42.37626150819794, -72.5194468269909)];
+
+    for (var i=0; i < markers.length; i++){
+      const cityCircle1 = new google.maps.Circle({
+        strokeColor: "#ffccf2",
+        strokeOpacity: 0.5,
+        strokeWeight: 1,
+        fillColor: "#66004d",
+        fillOpacity: 0.35,
+        map,
+        center: markers[i],
+        radius: 10*(Math.random()+1),
+      });
+    }
+  }, []);
+
+  return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
+};
+
+function Dashboard() {
+  const [slider, setSlider] = React.useState(5);
   return (
     <>
-      <div className="content">
+      <div className="content" >
         <Row>
-          <Col xs="12">
-            <Card className="card-chart">
-              <CardHeader>
-                <Row>
-                  <Col className="text-left" sm="6">
-                    <h5 className="card-category">Total Shipments</h5>
-                    <CardTitle tag="h2">Performance</CardTitle>
-                  </Col>
-                  <Col sm="6">
-                    {/*<ButtonGroup
-                      className="btn-group-toggle float-right"
-                      data-toggle="buttons"
-                    >
-                      <Button
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data1",
-                        })}
-                        color="info"
-                        id="0"
-                        size="sm"
-                        onClick={() => setBgChartData("data1")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Accounts
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-single-02" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="1"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data2",
-                        })}
-                        onClick={() => setBgChartData("data2")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Purchases
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-gift-2" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="2"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data3",
-                        })}
-                        onClick={() => setBgChartData("data3")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Sessions
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
-                      </Button>
-                    </ButtonGroup>*/}
-                  </Col>
-                </Row>
-              </CardHeader>
-              {/*<CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample1[bigChartData]}
-                    options={chartExample1.options}
-                  />
-                </div>
-              </CardBody>*/}
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Total Shipments</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
-                </CardTitle>
-              </CardHeader>
+          <Col md="12">
+            <Card className="card-plain">
+              <CardHeader>See what people are loving...</CardHeader>
+              <Slider
+                label={"Radius "+ slider + " meter"}
+                val={slider} 
+                min={10}
+                max={100}
+                onChange={setSlider} />
               <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Daily Sales</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                  3,500€
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Bar
-                    data={chartExample3.data}
-                    options={chartExample3.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Completed Tasks</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-send text-success" /> 12,100K
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample4.data}
-                    options={chartExample4.options}
-                  />
+                <div
+                  id="map"
+                  className="map"
+                  style={{ position: "relative", overflow: "hidden" }}
+                >
+                  <MapWrapper />
                 </div>
               </CardBody>
             </Card>
@@ -199,7 +423,7 @@ function Dashboard(props) {
           <Col lg="6" md="12">
             <Card className="card-tasks">
               <CardHeader>
-                <h6 className="title d-inline">Tasks(5)</h6>
+                <h6 className="title d-inline">Suggestions(5)</h6>
                 <p className="card-category d-inline"> today</p>
                 <UncontrolledDropdown>
                   <DropdownToggle
@@ -216,19 +440,19 @@ function Dashboard(props) {
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
-                      Action
+                      Most Recent
                     </DropdownItem>
                     <DropdownItem
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
-                      Another action
+                      Most Popular
                     </DropdownItem>
                     <DropdownItem
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
-                      Something else
+                      A - Z
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
@@ -249,9 +473,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">Update the Documentation</p>
+                          <p className="title">Visit Stacker's Pub</p>
                           <p className="text-muted">
-                            Dwuamish Head, Seattle, WA 8:47 AM
+                            People who have liked Antonio's Pizza also prefers this place
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -288,12 +512,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">GDPR Compliance</p>
+                          <p className="title">Check out Matt's Barber Shop</p>
                           <p className="text-muted">
-                            The GDPR is a regulation that requires businesses to
-                            protect the personal data and privacy of Europe
-                            citizens for transactions that occur within EU
-                            member states.
+                            Currently in trend for their Holiday Discount. Check-out this place for offers on haircuts. Visit around noon to have the least traffic.
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -326,10 +547,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">Solve the issues</p>
+                          <p className="title">Looking for a place to meditate during the holidays?</p>
                           <p className="text-muted">
-                            Fifty percent of all respondents said they would be
-                            more likely to shop at a company
+                            Visit Yoga Center Amherst to receive the best nourishment of soul and body.  
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -362,9 +582,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">Release v2.0.0</p>
+                          <p className="title">Mass Vintage is the place to be!</p>
                           <p className="text-muted">
-                            Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM
+                            Tourists like to get their old-school clothes from here, to bring home the scent of vintage Massachusetts. Check out this place which has been well-received by the customers in last 30 days. 
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -397,11 +617,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">Export the processed files</p>
+                          <p className="title">Don't miss the fireworks show at the hotel at 8pm</p>
                           <p className="text-muted">
-                            The report also shows that consumers will not easily
-                            forgive a company once a breach exposing their
-                            personal data occurs.
+                            You have set a custom reminder for a fireworks show arranged by the hotel you are staying at.
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -434,9 +652,9 @@ function Dashboard(props) {
                           </FormGroup>
                         </td>
                         <td>
-                          <p className="title">Arival at export process</p>
+                          <p className="title">Best dessert offers at Insomnia Cookies</p>
                           <p className="text-muted">
-                            Capitol Hill, Seattle, WA 12:34 AM
+                            [Ad] Buy dark chocolate cookies for $5/6pc at the very heart of Amherst Center, you don't need to look any further for your cookie cravings.
                           </p>
                         </td>
                         <td className="td-actions text-right">
@@ -466,60 +684,42 @@ function Dashboard(props) {
           <Col lg="6" md="12">
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Simple Table</CardTitle>
+                <CardTitle tag="h4">Nearby places</CardTitle>
               </CardHeader>
               <CardBody>
                 <Table className="tablesorter" responsive>
                   <thead className="text-primary">
                     <tr>
                       <th>Name</th>
-                      <th>Country</th>
-                      <th>City</th>
-                      <th className="text-center">Salary</th>
+                      <th>%Positive Reviews</th>
+                      <th>Well-received products/services</th>
+                      <th >Distance from Where you are</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Dakota Rice</td>
-                      <td>Niger</td>
-                      <td>Oud-Turnhout</td>
-                      <td className="text-center">$36,738</td>
+                      <td>Antonio's Pizza</td>
+                      <td>83%</td>
+                      <td>Cheese Sicilian Slice Pizza</td>
+                      <td className="text-center">144ft</td>
                     </tr>
                     <tr>
-                      <td>Minerva Hooper</td>
-                      <td>Curaçao</td>
-                      <td>Sinaai-Waas</td>
-                      <td className="text-center">$23,789</td>
+                      <td>Momo Tibetan</td>
+                      <td>91%</td>
+                      <td>Chilli Sauce Noodles; Service</td>
+                      <td className="text-center">150ft</td>
                     </tr>
                     <tr>
-                      <td>Sage Rodriguez</td>
-                      <td>Netherlands</td>
-                      <td>Baileux</td>
-                      <td className="text-center">$56,142</td>
+                      <td>Moge Tee Amherst</td>
+                      <td>79%</td>
+                      <td>Fresh Strawberry Tea</td>
+                      <td className="text-center">335ft</td>
                     </tr>
                     <tr>
-                      <td>Philip Chaney</td>
-                      <td>Korea, South</td>
-                      <td>Overland Park</td>
-                      <td className="text-center">$38,735</td>
-                    </tr>
-                    <tr>
-                      <td>Doris Greene</td>
-                      <td>Malawi</td>
-                      <td>Feldkirchen in Kärnten</td>
-                      <td className="text-center">$63,542</td>
-                    </tr>
-                    <tr>
-                      <td>Mason Porter</td>
-                      <td>Chile</td>
-                      <td>Gloucester</td>
-                      <td className="text-center">$78,615</td>
-                    </tr>
-                    <tr>
-                      <td>Jon Porter</td>
-                      <td>Portugal</td>
-                      <td>Gloucester</td>
-                      <td className="text-center">$98,615</td>
+                      <td>Stamell Stringed Instruments</td>
+                      <td>87%</td>
+                      <td>Affordable price; Violins</td>
+                      <td className="text-center">0.1mile</td>
                     </tr>
                   </tbody>
                 </Table>
