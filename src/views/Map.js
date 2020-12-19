@@ -10,47 +10,45 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 import React from "react";
-
 // reactstrap components
-import { Card, CardHeader, CardBody, Row, Col, CardTitle } from "reactstrap";
+import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
 import SliderInput from "components/SliderInput/SliderInput";
 
-const MapWrapper = () => {
+const MapWrapper = (props) => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
 
     let lat = '42.37653665195455';
     let lng = '-72.51931728157159';
-    console.log(JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'}))
 
-    fetch('https://api.radar.io/v1/track', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
-      },
-      body: JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'})
-      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
-    }).then(response => response.json())
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => console.log(err));
+    // fetch('https://api.radar.io/v1/track', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json, text/plain, */*',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    //   },
+    //   body: JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'})
+    //   //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    // }).then(response => response.json())
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => console.log(err));
 
-    fetch('https://api.radar.io/v1/context?coordinates='+lat+','+lng, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
-      },
-      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
-    }).then(response => response.json())
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => console.log(err));
+    // fetch('https://api.radar.io/v1/context?coordinates='+lat+','+lng, {
+    //   method: 'GET',
+    //   headers: {
+    //     'Accept': 'application/json, text/plain, */*',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    //   },
+    //   //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    // }).then(response => response.json())
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => console.log(err));
 
     let google = window.google;
     let map = mapRef.current;
@@ -342,61 +340,51 @@ const MapWrapper = () => {
       content: contentString,
     });
 
-    // const cityCircle = new google.maps.Circle({
-    //   strokeColor: "#FF0000",
-    //   strokeOpacity: 0.8,
-    //   strokeWeight: 2,
-    //   fillColor: "#6a8dd4",
-    //   fillOpacity: 0.35,
-    //   map,
-    //   center: myLatlng,
-    //   radius: 40,
-    // });
+    new google.maps.Circle({
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#6a8dd4",
+      fillOpacity: 0.35,
+      map,
+      center: myLatlng,
+      radius: props.radius,
+    });
 
-    fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+lng+'&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDGy3AHZRczP2YDTnkudUDofavKTvrpVz8', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
-      },
-      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
-    }).then(response => response.json())
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => console.log(err));
+    // fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+lng+'&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDGy3AHZRczP2YDTnkudUDofavKTvrpVz8', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Accept': 'application/json, text/plain, */*',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    //   },
+    //   //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    // }).then(response => response.json())
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => console.log(err));
 
     google.maps.event.addListener(marker, "click", function () {
       infowindow.open(map, marker);
     });
-  }, []);
+  }, [props.radius]);
 
   return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 
 function Map() {
-  const [slider, setSlider] = React.useState(5);
+  const [slider, setSlider] = React.useState(40);
   return (
     <>
       <div className="content" >
         <Row>
-          <Col xs="2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Slider Output</CardTitle>
-              </CardHeader>
-              <CardBody>
-                {slider}
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs="10">
+          <Col xs="12">
             <SliderInput
-              label="Select Range"
+              label={slider + 'meters'}
               val={slider} 
               min={5}
-              max={15}
+              max={100}
               onChange={setSlider} />
           </Col>
         </Row>
@@ -410,7 +398,7 @@ function Map() {
                   className="map"
                   style={{ position: "relative", overflow: "hidden" }}
                 >
-                  <MapWrapper />
+                  <MapWrapper radius={slider} />
                 </div>
               </CardBody>
             </Card>

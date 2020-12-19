@@ -10,8 +10,9 @@ function SliderInput(props) {
         id="customRange1" 
         min={props.min ? props.min : 0}
         max={props.max ? props.max : 100}
+        step={props.step ? props.step : 5}
         value={props.val} 
-        onChange={(e) => props.onChange(e.target.value)} />
+        onChange={(e) => props.onChange(parseInt(e.target.value))} />
     </div>
   )
 }
