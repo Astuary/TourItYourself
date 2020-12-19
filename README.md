@@ -7,12 +7,19 @@ Tour-it Yourself dashboard is a beautiful web-app made with [Bootstrap 4](http:/
 ![Product Gif](./src/assets/demo/Dashboard.png)
 
 First we mention the use of GeoFencing, Tracking, Searching, Distance calculating, et cetera's applications in real life:
+
 🗺 Geofencing: Send a customized or tailored product advertisement to the consumers if they are nearby the store.
+
 🚦 Tracking: A person's stolen items or credit cards can be tracked. Alarms can be raised if a consumer is not aware about their stolen credit card but as soon as there's an attempt to withdraw money, Radar.io can detect that the consumer is too far to have made that transaction.
+
 🔎 Searching: If we can track a thing, we can search for it and require it. May it be your misplaced car keys or a wedding ring, nothing will be lost forever between the folds of your couch again.
+
 🧮 Distance: Precise distance between two locations can be calculated, taking into account the weather, the traffic, and the user's tendencies in driving.
+
 👨🏼‍💻 Geocoding: IP addresses are enough to get the location of a device. This can be put to good use in tracking down the crimes.
+
 🌆 Region exploration: Information about the region you are in, its landmarks, famous food shops, shopping centers can be extracted. Boosting up the Tourism Industry.
+
 🏗 Places: Get information about a store, what they are selling, are there any discounts, what's famous among their products or services.
 
 We have adaptively designed this user-friendly dashboard [Credit](https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md), which combines colors that are easy on the eye, spacious cards, beautiful typography, and graphics. Our goal was to be transparent with the end user in telling them what exactly we are tracking and why. It is light and easy to use, and also very powerful. Simplicity is the hardest thing to implement.
