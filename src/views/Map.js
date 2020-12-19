@@ -1,19 +1,13 @@
 /*!
-
 =========================================================
 * Black Dashboard React v1.2.0
 =========================================================
-
 * Product Page: https://www.creative-tim.com/product/black-dashboard-react
 * Copyright 2020 Creative Tim (https://www.creative-tim.com)
 * Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
-
 * Coded by Creative Tim
-
 =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
 */
 import React from "react";
 
@@ -25,10 +19,14 @@ const MapWrapper = () => {
   React.useEffect(() => {
     let google = window.google;
     let map = mapRef.current;
-    let lat = "40.748817";
-    let lng = "-73.985428";
+    let lat = "40.783826";
+    let lng = "-73.975363";
+
     const myLatlng = new google.maps.LatLng(lat, lng);
+
     const mapOptions = {
+      center: myLatlng,
+      zoom: 20,
       scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
       styles: [
         {
@@ -295,13 +293,14 @@ const MapWrapper = () => {
       infowindow.open(map, marker);
     });
   }, []);
-  return <div ref={mapRef} />;
+
+  return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 
 function Map() {
   return (
     <>
-      <div className="content">
+      <div className="content" >
         <Row>
           <Col md="12">
             <Card className="card-plain">
