@@ -30,18 +30,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import ThemeContextWrapper from "./components/ThemeWrapper/ThemeWrapper";
 import BackgroundColorWrapper from "./components/BackgroundColorWrapper/BackgroundColorWrapper";
 
-fetch('https://api.radar.io/v1/users', {
-    method: 'PUT',
-    headers: {
-        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
-    },
-    body: 'description=Store #123&type=circle&coordinates=[-73.975363,40.783826]&radius=100'
-}).then(response => response.json())
-.then(data => {
-  console.log(data)
-})
-.catch(err => console.log(err));
-
 ReactDOM.render(
   <ThemeContextWrapper>
     <BackgroundColorWrapper>
