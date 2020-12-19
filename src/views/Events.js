@@ -202,6 +202,7 @@ function Events() {
                       Starts at Center Park
                     </div>
                   </Col>
+                  {/*
                   <Col
                     className="font-icon-list col-xs-6 col-xs-6"
                     lg="2"
@@ -1172,7 +1173,7 @@ function Events() {
                       <i className="tim-icons icon-simple-delete" />
                       <p>icon-simple-delete</p>
                     </div>
-                  </Col>
+                  </Col>*/}
                 </Row>
               </CardBody>
             </Card>

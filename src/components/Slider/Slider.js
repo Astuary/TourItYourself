@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Slider(props) {
+function SliderInput(props) {
   return (
     <div className="my-5">
       <label htmlFor="customRange1">{props.label}</label>
@@ -11,9 +11,9 @@ function Slider(props) {
         min={props.min ? props.min : 0}
         max={props.max ? props.max : 100}
         value={props.val} 
-        onChange={(e) => props.onChange(e.target.value)} />
+        onChange={(e) => props.onChange(parseInt(e.target.value))} />
     </div>
   )
 }
 
-export default Slider;
+export default SliderInput;

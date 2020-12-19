@@ -20,7 +20,6 @@ import React from "react";
 // reactstrap components
 import {
   Button,
-  ButtonGroup,
   Card,
   CardHeader,
   CardBody,
@@ -56,7 +55,7 @@ function calculateDistance(x1, y1, x2, y2){
     .catch(err => console.log(err));
 }
 
-const MapWrapper = () => {
+const MapWrapper = (props) => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
 
@@ -347,7 +346,7 @@ const MapWrapper = () => {
 
     map = new google.maps.Map(map, mapOptions);
 
-    const marker = new google.maps.Marker({
+    new google.maps.Marker({
       position: myLatlng,
       map: map,
       animation: google.maps.Animation.DROP,
@@ -358,11 +357,11 @@ const MapWrapper = () => {
       '<div class="info-window-content"><h2>BLK Dashboard React</h2>' +
       "<p>A freebie Admin for ReactStrap, Bootstrap, React, and React Hooks.</p></div>";
 
-    const infowindow = new google.maps.InfoWindow({
+    new google.maps.InfoWindow({
       content: contentString,
     });
 
-    const cityCircle = new google.maps.Circle({
+    new google.maps.Circle({
       strokeColor: "#FF0000",
       strokeOpacity: 0.8,
       strokeWeight: 2,
@@ -370,13 +369,13 @@ const MapWrapper = () => {
       fillOpacity: 0.35,
       map,
       center: myLatlng,
-      radius: 40,
+      radius: props.radius,
     });
 
     const markers = [new google.maps.LatLng(42.37673983059261, -72.51928473087418), new google.maps.LatLng(42.376615582633356, -72.51969637982289), new google.maps.LatLng(42.37626150819794, -72.5194468269909)];
 
     for (var i=0; i < markers.length; i++){
-      const cityCircle1 = new google.maps.Circle({
+      new google.maps.Circle({
         strokeColor: "#ffccf2",
         strokeOpacity: 0.5,
         strokeWeight: 1,
@@ -387,13 +386,13 @@ const MapWrapper = () => {
         radius: 10*(Math.random()+1),
       });
     }
-  }, []);
+  }, [props.radius]);
 
   return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 
 function Dashboard() {
-  const [slider, setSlider] = React.useState(5);
+  const [slider, setSlider] = React.useState(40);
   return (
     <>
       <div className="content" >
@@ -413,7 +412,7 @@ function Dashboard() {
                   className="map"
                   style={{ position: "relative", overflow: "hidden" }}
                 >
-                  <MapWrapper />
+                  <MapWrapper radius={slider}/>
                 </div>
               </CardBody>
             </Card>

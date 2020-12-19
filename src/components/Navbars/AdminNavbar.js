@@ -118,27 +118,22 @@ function AdminNavbar(props) {
                 <DropdownMenu className="dropdown-navbar" right tag="ul">
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      Mike John responded to your email
+                    Your review for the &lt;product/...
                     </DropdownItem>
                   </NavLink>
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      You have 5 more tasks
+                    Review &lt;place name&gt; you...
                     </DropdownItem>
                   </NavLink>
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      Your friend Michael is in town
+                    The credit card connected to...
                     </DropdownItem>
                   </NavLink>
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      Another notification
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Another one
+                    In a short span, the credit...
                     </DropdownItem>
                   </NavLink>
                 </DropdownMenu>
@@ -153,7 +148,7 @@ function AdminNavbar(props) {
                   <div className="photo">
                     <img
                       alt="..."
-                      src={require("assets/img/anime3.png").default}
+                      src={require("assets/img/anime6.png").default}
                     />
                   </div>
                   <b className="caret d-none d-lg-block d-xl-block" />
@@ -183,7 +178,7 @@ function AdminNavbar(props) {
         toggle={toggleModalSearch}
       >
         <ModalHeader>
-          <Input placeholder="SEARCH" type="text" />
+          <Input placeholder="LOOK UP A PLACE" type="text" />
           <button
             aria-label="Close"
             className="close"

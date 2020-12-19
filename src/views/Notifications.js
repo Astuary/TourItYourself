@@ -23,7 +23,6 @@ import NotificationAlert from "react-notification-alert";
 import {
   Alert,
   UncontrolledAlert,
-  Button,
   Card,
   CardHeader,
   CardBody,
@@ -95,16 +94,13 @@ function Notifications() {
                 <UncontrolledAlert className="alert-with-icon" color="warning">
                   <span className="tim-icons icon-bell-55" data-notify="icon" />
                   <span data-notify="message">
-                    The credit card connected to this app is being transitted away from your current location.
+                    The credit card connected to this app is being used at &lt;Financial Institution Name and Address&gt;, away from your current location. Ignore this message if you are aware about this activity.
                   </span>
                 </UncontrolledAlert>
-                <UncontrolledAlert className="alert-with-icon" color="info">
-                  <span className="tim-icons icon-bell-55" data-notify="icon" />
+                <UncontrolledAlert className="alert-with-icon" color="danger">
+                  <span className="tim-icons icon-credit-card" data-notify="icon" />
                   <span data-notify="message">
-                    This is a notification with close button and icon and have
-                    many lines. You can see that the icon and the close button
-                    are always vertically aligned. This is a beautiful
-                    notification. So you don't have to worry about the style.
+                    In a short span, the credit card linked with this app has been used at many places, all away from the user. Please take necessary steps.
                   </span>
                 </UncontrolledAlert>
               </CardBody>
@@ -119,31 +115,31 @@ function Notifications() {
                 <UncontrolledAlert color="primary">
                   <span>
                     <b>Primary - </b>
-                    This is a regular notification made with ".alert-primary"
+                    This is a regular notification made for "product/service/place recommendation"
                   </span>
                 </UncontrolledAlert>
                 <UncontrolledAlert color="info">
                   <span>
                     <b>Info - </b>
-                    This is a regular notification made with ".alert-info"
+                    This is a regular notification made for "asking for the user reviews" after the user has been at the place
                   </span>
                 </UncontrolledAlert>
                 <UncontrolledAlert color="success">
                   <span>
                     <b>Success - </b>
-                    This is a regular notification made with ".alert-success"
+                    This is a regular notification made for "notifying the successful reception" of info from the user
                   </span>
                 </UncontrolledAlert>
                 <UncontrolledAlert color="warning">
                   <span>
                     <b>Warning - </b>
-                    This is a regular notification made with ".alert-warning"
+                    This is a regular notification made to "notify the user about suspicious areas/activities"
                   </span>
                 </UncontrolledAlert>
                 <UncontrolledAlert color="danger">
                   <span>
                     <b>Danger - </b>
-                    This is a regular notification made with ".alert-danger"
+                    This is a regular notification made to "raise the alarm for a very recurrent suspicious activity"
                   </span>
                 </UncontrolledAlert>
               </CardBody>

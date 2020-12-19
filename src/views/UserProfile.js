@@ -47,11 +47,11 @@ function UserProfile() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>Company (disabled)</label>
+                        <label>Unique ID (disabled)</label>
                         <Input
-                          defaultValue="Creative Code Inc."
+                          defaultValue="56db1f4613012711002229f4"
                           disabled
-                          placeholder="Company"
+                          placeholder="56db1f4613012711002229f4"
                           type="text"
                         />
                       </FormGroup>
@@ -60,7 +60,7 @@ function UserProfile() {
                       <FormGroup>
                         <label>Username</label>
                         <Input
-                          defaultValue="michael23"
+                          defaultValue="saraha23"
                           placeholder="Username"
                           type="text"
                         />
@@ -71,7 +71,20 @@ function UserProfile() {
                         <label htmlFor="exampleInputEmail1">
                           Email address
                         </label>
-                        <Input placeholder="mike@email.com" type="email" />
+                        <Input placeholder="sarah@email.com" type="email" />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md="12">
+                      <FormGroup>
+                        <label>Device ID (disabled)</label>
+                        <Input
+                          defaultValue="C305F2DB-56DC-404F-B6C1-BC52F0B680D8"
+                          disabled
+                          placeholder="C305F2DB-56DC-404F-B6C1-BC52F0B680D8"
+                          type="text"
+                        />
                       </FormGroup>
                     </Col>
                   </Row>
@@ -80,7 +93,7 @@ function UserProfile() {
                       <FormGroup>
                         <label>First Name</label>
                         <Input
-                          defaultValue="Mike"
+                          defaultValue="Sarah"
                           placeholder="Company"
                           type="text"
                         />
@@ -114,7 +127,7 @@ function UserProfile() {
                       <FormGroup>
                         <label>City</label>
                         <Input
-                          defaultValue="Mike"
+                          defaultValue="Boston"
                           placeholder="City"
                           type="text"
                         />
@@ -124,7 +137,7 @@ function UserProfile() {
                       <FormGroup>
                         <label>Country</label>
                         <Input
-                          defaultValue="Andrew"
+                          defaultValue="United States"
                           placeholder="Country"
                           type="text"
                         />
@@ -138,15 +151,16 @@ function UserProfile() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col md="8">
+                    <Col md="10">
                       <FormGroup>
                         <label>About Me</label>
                         <Input
                           cols="80"
-                          defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            that two seat Lambo."
+                          defaultValue="Do not follow where the path may lead.
+                          Go instead where there is no path and leave a trail.                          
+                          – Ralph Waldo Emerson"
                           placeholder="Here can be your description"
-                          rows="4"
+                          rows="5"
                           type="textarea"
                         />
                       </FormGroup>
@@ -174,19 +188,44 @@ function UserProfile() {
                     <img
                       alt="..."
                       className="avatar"
-                      src={require("assets/img/emilyz.jpg").default}
+                      src={require("assets/img/anime6.png").default}
                     />
-                    <h5 className="title">Mike Andrew</h5>
+                    <h5 className="title">Sarah Andrew</h5>
                   </a>
-                  <p className="description">Ceo/Co-Founder</p>
-                </div>
-                <div className="card-description">
-                  Do not be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
+                  <Row>
+                    <Col className="px-md-1" md="12">
+                      <FormGroup>
+                        <label>Last Location Update</label>
+                        <label>: 19th Dec, 2020 11:20 AM EST</label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                  <Col className="px-md-1" md="12">
+                      <FormGroup>
+                        <label>Insights<br/></label>
+                        <div>
+                          <input type="radio" value="HOME" name="state" disabled="True"/> At Home&nbsp;&nbsp;&nbsp;
+                          <input type="radio" value="OFFICE" name="state" checked="True" /> At Office<br/>
+                          <input type="radio" value="TRAVELING" name="state" disabled="True"/> Traveling&nbsp;&nbsp;&nbsp;
+                          <input type="radio" value="COMMUTING" name="state" disabled="True"/> Commuting
+                        </div>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="px-md-1" md="12">
+                      <FormGroup>
+                        <label>Estimated Office to Home travel time at 5pm</label>
+                        <label>: 32 mins</label>
+                        <label>Estimated Home to Office travel time at 9am</label>
+                        <label>: 27 mins</label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
                 </div>
               </CardBody>
-              <CardFooter>
+              {/*<CardFooter>
                 <div className="button-container">
                   <Button className="btn-icon btn-round" color="facebook">
                     <i className="fab fa-facebook" />
@@ -198,7 +237,7 @@ function UserProfile() {
                     <i className="fab fa-google-plus" />
                   </Button>
                 </div>
-              </CardFooter>
+              </CardFooter>*/}
             </Card>
           </Col>
         </Row>

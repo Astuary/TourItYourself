@@ -16,523 +16,404 @@
 
 */
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
 
 // reactstrap components
 import {
-  Button,
-  ButtonGroup,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
   Table,
   Row,
   Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 
-// core components
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
-} from "variables/charts.js";
+import Icon from "assets/img/credit-card-40.png"
+
+const MapWrapper = () => {
+  const mapRef = React.useRef(null);
+  React.useEffect(() => {
+
+    let lat = '42.37653665195455';
+    let lng = '-72.51931728157159';
+    console.log(JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'}))
+
+    fetch('https://api.radar.io/v1/track', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      body: JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'})
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
+    fetch('https://api.radar.io/v1/context?coordinates='+lat+','+lng, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
+    let google = window.google;
+    let map = mapRef.current;
+    
+    const myLatlng = new google.maps.LatLng(lat, lng);
+    const mapOptions = {
+      center: myLatlng,
+      zoom: 19,
+      scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+      styles: [
+        {
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#8ec3b9",
+            },
+          ],
+        },
+        {
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1a3646",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.country",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#4b6878",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.land_parcel",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#64779e",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.province",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#4b6878",
+            },
+          ],
+        },
+        {
+          featureType: "landscape.man_made",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#334e87",
+            },
+          ],
+        },
+        {
+          featureType: "landscape.natural",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#283d6a",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#6f9ba5",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "poi.park",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "poi.park",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#3C7680",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#304a7d",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#98a5be",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#2c6675",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#9d2a80",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "geometry.stroke",
+          stylers: [
+            {
+              color: "#9d2a80",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#b0d5ce",
+            },
+          ],
+        },
+        {
+          featureType: "road.highway",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#023e58",
+            },
+          ],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#98a5be",
+            },
+          ],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.text.stroke",
+          stylers: [
+            {
+              color: "#1d2c4d",
+            },
+          ],
+        },
+        {
+          featureType: "transit.line",
+          elementType: "geometry.fill",
+          stylers: [
+            {
+              color: "#283d6a",
+            },
+          ],
+        },
+        {
+          featureType: "transit.station",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#3a4762",
+            },
+          ],
+        },
+        {
+          featureType: "water",
+          elementType: "geometry",
+          stylers: [
+            {
+              color: "#0e1626",
+            },
+          ],
+        },
+        {
+          featureType: "water",
+          elementType: "labels.text.fill",
+          stylers: [
+            {
+              color: "#4e6d70",
+            },
+          ],
+        },
+      ],
+    };
+
+    map = new google.maps.Map(map, mapOptions);
+
+    new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      title: "BLK Design System PRO React!",
+    });
+
+    const contentString =
+      '<div class="info-window-content"><h2>BLK Dashboard React</h2>' +
+      "<p>A freebie Admin for ReactStrap, Bootstrap, React, and React Hooks.</p></div>";
+
+    new google.maps.InfoWindow({
+      content: contentString,
+    });
+
+    const markers = [new google.maps.LatLng(42.37673983059261, -72.51928473087418), new google.maps.LatLng(42.376615582633356, -72.51969637982289), new google.maps.LatLng(42.37626150819794, -72.5194468269909), new google.maps.LatLng(42.318441713303386, -72.6306482674459)];
+
+    for (var i=0; i < markers.length; i++){
+      new google.maps.Marker({
+        position: markers[i],
+        icon: Icon,
+        map: map,
+      });
+    }
+  }, );
+
+  return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
+};
 
 function Security() {
-  const [bigChartData, setbigChartData] = React.useState("data1");
-  const setBgChartData = (name) => {
-    setbigChartData(name);
-  };
   return (
     <>
-      <div className="content">
+      <div className="content" >
         <Row>
-          <Col xs="12">
-            <Card className="card-chart">
-              <CardHeader>
-                <Row>
-                  <Col className="text-right" sm="6">
-                    <h5 className="card-category">مجموع الشحنات</h5>
-                    <CardTitle tag="h2">أداء</CardTitle>
-                  </Col>
-                  <Col sm="6">
-                    <ButtonGroup
-                      className="btn-group-toggle float-left"
-                      data-toggle="buttons"
-                    >
-                      <Button
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data1",
-                        })}
-                        color="info"
-                        id="0"
-                        size="sm"
-                        onClick={() => setBgChartData("data1")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          حسابات
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-single-02" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="1"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data2",
-                        })}
-                        onClick={() => setBgChartData("data2")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          المشتريات
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-gift-2" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="2"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data3",
-                        })}
-                        onClick={() => setBgChartData("data3")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          جلسات
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
-                      </Button>
-                    </ButtonGroup>
-                  </Col>
-                </Row>
-              </CardHeader>
+          <Col md="6">
+            <Card className="card-plain">
+              <CardHeader>Keep your finances secure</CardHeader>
               <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample1[bigChartData]}
-                    options={chartExample1.options}
-                  />
+                <div
+                  id="map"
+                  className="map"
+                  style={{ height: "400px", width: "400px", position: "relative", overflow: "hidden" }}
+                >
+                  <MapWrapper/>
                 </div>
               </CardBody>
             </Card>
           </Col>
-        </Row>
-        <Row>
-          <Col className="text-right" lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">شحنات كاملة</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-primary" /> 763,215
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col className="text-right" lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">المبيعات اليومية</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-delivery-fast text-info" />{" "}
-                  3,500€
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Bar
-                    data={chartExample3.data}
-                    options={chartExample3.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col className="text-right" lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">المهام المكتملة</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-send text-success" /> 12,100K
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample4.data}
-                    options={chartExample4.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-center" lg="6" sm="6">
-            <Card className="card-tasks text-left">
-              <CardHeader className="text-right">
-                <h6 className="title d-inline">تتبع</h6>{" "}
-                <p className="card-category d-inline">اليوم</p>
-                <UncontrolledDropdown className="float-left">
-                  <DropdownToggle
-                    aria-expanded={false}
-                    aria-haspopup={true}
-                    caret
-                    color="link"
-                    data-toggle="dropdown"
-                    id="dropdownMenuLink"
-                  >
-                    <i className="tim-icons icon-settings-gear-63" />
-                  </DropdownToggle>
-                  <DropdownMenu aria-labelledby="dropdownMenuLink">
-                    <DropdownItem
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      عمل
-                    </DropdownItem>
-                    <DropdownItem
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      عمل آخر
-                    </DropdownItem>
-                    <DropdownItem
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      شيء آخر هنا
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </CardHeader>
-              <CardBody>
-                <div className="table-full-width table-responsive">
-                  <Table>
-                    <tbody>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input
-                                defaultChecked
-                                defaultValue=""
-                                type="checkbox"
-                              />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">مركز معالجة موقع محور</p>
-                          <p className="text-muted">نص آخر هناالوثائق</p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip591536518"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip591536518"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input defaultValue="" type="checkbox" />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">لامتثال GDPR</p>
-                          <p className="text-muted">
-                            الناتج المحلي الإجمالي هو نظام يتطلب من الشركات
-                            حماية البيانات الشخصية والخصوصية لمواطني أوروبا
-                            بالنسبة للمعاملات التي تتم داخل الدول الأعضاء في
-                            الاتحاد الأوروبي.
-                          </p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip36890049"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip36890049"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input defaultValue="" type="checkbox" />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">القضاياالقضايا</p>
-                          <p className="text-muted">
-                            سيكونونقال 50٪ من جميع المستجيبين أنهم سيكونون أكثر
-                            عرضة للتسوق في شركة
-                          </p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip5456779"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip5456779"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input
-                                defaultChecked
-                                defaultValue=""
-                                type="checkbox"
-                              />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">
-                            تصدير الملفات التي تمت معالجتها
-                          </p>
-                          <p className="text-muted">
-                            كما يبين التقرير أن المستهلكين لن يغفروا شركة بسهولة
-                            بمجرد حدوث خرق يعرض بياناتهم الشخصية.
-                          </p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip989428493"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip989428493"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input
-                                defaultChecked
-                                defaultValue=""
-                                type="checkbox"
-                              />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">الوصول إلى عملية التصدير</p>
-                          <p className="text-muted">
-                            سياسة السيء إنطلاق في قبل, مساعدة والمانيا أخذ قد.
-                            بل أما أمام ماشاء الشتاء،, تكاليف الإقتصادي بـ حين.
-                            ٣٠ يتعلّق للإتحاد ولم, وتم هناك مدينة بتحدّي إذ, كان
-                            بل عمل
-                          </p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip169784793"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip169784793"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-center">
-                          <FormGroup check>
-                            <Label check>
-                              <Input defaultValue="" type="checkbox" />
-                              <span className="form-check-sign">
-                                <span className="check" />
-                              </span>
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-right">
-                          <p className="title">الافراج عن v2.0.0</p>
-                          <p className="text-muted">
-                            عن رئيس طوكيو البولندي لمّ, مايو مرجع وباءت قبل هو,
-                            تسمّى الطريق الإقتصادي ذات أن. لغات الإطلاق الفرنسية
-                            دار ان, بين بتخصيص الساحة اقتصادية أم. و الآخ
-                          </p>
-                        </td>
-                        <td className="td-actions">
-                          <Button
-                            color="link"
-                            id="tooltip554497871"
-                            title=""
-                            type="button"
-                          >
-                            <i className="tim-icons icon-settings" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip554497871"
-                            placement="right"
-                          >
-                            مهمة تحرير
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="6" sm="6">
+          <Col lg="6" md="8">
             <Card>
-              <CardHeader className="text-right">
-                <CardTitle tag="h4">جدول بسيط</CardTitle>
+              <CardHeader>
+                <CardTitle tag="h4">Recent Transactions</CardTitle>
               </CardHeader>
               <CardBody>
                 <Table className="tablesorter" responsive>
                   <thead className="text-primary">
                     <tr>
-                      <th>اسم</th>
-                      <th>بلد</th>
-                      <th>مدينة</th>
-                      <th className="text-center">راتب</th>
+                      <th>Location</th>
+                      <th>Amount</th>
+                      <th>Time</th>
+                      <th>Distance from Where you are</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>رايس داكوتا</td>
-                      <td>النيجر</td>
-                      <td>العود-تورنهاوت</td>
-                      <td className="text-center">$36,738</td>
+                      <td>BofA Financial Center Amherst</td>
+                      <td>$50</td>
+                      <td>11:07 am 12/19/20</td>
+                      <td className="text-center">424ft</td>
                     </tr>
                     <tr>
-                      <td>مينيرفا هوبر</td>
-                      <td>كوراساو</td>
-                      <td>Sinaai-واس</td>
-                      <td className="text-center">$23,789</td>
+                      <td>Vici Hair Studio</td>
+                      <td>$70</td>
+                      <td>11:29 am 12/19/20</td>
+                      <td className="text-center">750ft</td>
                     </tr>
                     <tr>
-                      <td>سيج رودريجيز</td>
-                      <td>هولندا</td>
-                      <td>بايلي</td>
-                      <td className="text-center">$56,142</td>
+                      <td>IYA Sushi and Noodles</td>
+                      <td>$30</td>
+                      <td>11:53 am 12/19/20</td>
+                      <td className="text-center">835ft</td>
                     </tr>
-                    <tr>
-                      <td>فيليب شانيه</td>
-                      <td>كوريا، جنوب</td>
-                      <td>اوفرلاند بارك</td>
-                      <td className="text-center">$38,735</td>
+                    <tr style={{backgroundColor:"#f5365c"}}>
+                      <td>BofA Financial Center Northhampton</td>
+                      <td>$300</td>
+                      <td>06:45pm 12/19/20</td>
+                      <td className="text-center">7.7mile</td>
                     </tr>
-                    <tr>
-                      <td>دوريس غرين</td>
-                      <td>مالاوي</td>
-                      <td>المنع</td>
-                      <td className="text-center">$63,542</td>
-                    </tr>
-                    <tr>
-                      <td>ميسون بورتر</td>
-                      <td>تشيلي</td>
-                      <td>غلوستر</td>
-                      <td className="text-center">$78,615</td>
-                    </tr>
-                    <tr>
-                      <td>جون بورتر</td>
-                      <td>البرتغال</td>
-                      <td>غلوستر</td>
-                      <td className="text-center">$98,615</td>
+                    <tr style={{backgroundColor:"#f5365c"}}>
+                      <td>BofA Financial Center Northhampton</td>
+                      <td>$300</td>
+                      <td>06:47pm 12/19/20</td>
+                      <td className="text-center">7.7mile</td>
                     </tr>
                   </tbody>
                 </Table>

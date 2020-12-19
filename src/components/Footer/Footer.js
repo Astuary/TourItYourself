@@ -33,12 +33,12 @@ function Footer() {
           </NavItem>*/}
           <NavItem>
             <NavLink href="https://www.creative-tim.com/presentation?ref=bdr-user-er">
-              About Us
+              Template Credit
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://www.creative-tim.com/blog?ref=bdr-user-er">
-              Blog
+            <NavLink href="https://astuary.github.io/Kunjal">
+              About Us
             </NavLink>
           </NavItem>
         </Nav>
@@ -46,12 +46,12 @@ function Footer() {
           © {new Date().getFullYear()} made with{" "}
           <i className="tim-icons icon-heart-2" /> by{" "}
           <a
-            href="https://www.creative-tim.com/?ref=bdr-user-er"
+            href="https://github.com/Astuary"
             target="_blank"
           >
-            Creative Tim
+            Kunjal Panchal
           </a>{" "}
-          for a better web.
+          for a secure tourism.
         </div>
       </Container>
     </footer>
