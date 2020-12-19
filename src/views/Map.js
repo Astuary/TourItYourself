@@ -9,26 +9,43 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import SliderInput from "components/SliderInput/SliderInput";
 import React from "react";
 
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col, CardTitle } from "reactstrap";
+import SliderInput from "components/SliderInput/SliderInput";
 
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
 
-    let lat = "42.37642389170561";
-    let lng = "-72.51878613300975";
-
+    let lat = '42.37653665195455';
+    let lng = '-72.51931728157159';
+    console.log(JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'}))
 
     fetch('https://api.radar.io/v1/track', {
-    method: 'POST',
-    headers: {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
         'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
-    },
-    body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+      },
+      body: JSON.stringify({deviceId: 'C305F2DB-56DC-404F-B6C1-BC52F0B680D8', userId: '1', latitude: lat, longitude: lng, accuracy: '65'})
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
+    fetch('https://api.radar.io/v1/context?coordinates='+lat+','+lng, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
     }).then(response => response.json())
     .then(data => {
       console.log(data)
@@ -62,7 +79,7 @@ const MapWrapper = () => {
 
     const mapOptions = {
       center: myLatlng,
-      zoom: 20,
+      zoom: 19,
       scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
       styles: [
         {
@@ -325,10 +342,36 @@ const MapWrapper = () => {
       content: contentString,
     });
 
+    // const cityCircle = new google.maps.Circle({
+    //   strokeColor: "#FF0000",
+    //   strokeOpacity: 0.8,
+    //   strokeWeight: 2,
+    //   fillColor: "#6a8dd4",
+    //   fillOpacity: 0.35,
+    //   map,
+    //   center: myLatlng,
+    //   radius: 40,
+    // });
+
+    fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+lng+'&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDGy3AHZRczP2YDTnkudUDofavKTvrpVz8', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
     google.maps.event.addListener(marker, "click", function () {
       infowindow.open(map, marker);
     });
   }, []);
+
   return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 
