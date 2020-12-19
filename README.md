@@ -52,7 +52,7 @@ Special thanks go for the owners of this plugin:
 
 | Dashboard Map | Dashboard Memo and Suggestions | Events | Notifications | Security | User Settings and Preferences |
 | --- | --- | --- | --- | --- | --- |
-| [![Dashboard Map](./src/assets/demo/Dashboard.png)](https://) | [![Dashboard Memo and Suggestions](./src/assets/demo/DashboardTables.png)](https://) | [![Events](./src/assets/demo/Events.png)](https://) |  [![Notification](./src/assets/demo/Notification.png)](https://) | [![Security](./src/assets/demo/Security.png)](https://) | [![User Settings and Preferences](./src/assets/demo/User.png)](https://) |
+| [![Dashboard Map](./src/assets/demo/Dashboard.png)](https://) | [![Dashboard Memo and Suggestions](./src/assets/demo/DashboardTables.png)](https://) | [![Events](./src/assets/demo/Events.png)](https://) |  [![Notification](./src/assets/demo/Notifications.png)](https://) | [![Security](./src/assets/demo/Security.png)](https://) | [![User Settings and Preferences](./src/assets/demo/User.png)](https://) |
 
 ## Demo
 
