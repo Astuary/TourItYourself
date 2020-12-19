@@ -168,6 +168,7 @@ We use GitHub Issues as the official bug tracker for the Tour-it Yourself App. H
 ## Technical Support or Questions
 
 If you have questions or need help integrating the product please contact us.
+
 ## Licensing
 
 - Copyright 2020 Creative Tim (https://www.creative-tim.com)
@@ -176,3 +177,7 @@ If you have questions or need help integrating the product please contact us.
 ## Useful Links
 
 This project is deployed on [!site](https://)
+
+## Acknowledgement
+
+Thank you HackUMass VIII for hosting the fun virtual hackathon. I look forward to coming here next year.
