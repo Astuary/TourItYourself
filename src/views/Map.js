@@ -20,15 +20,29 @@ import React from "react";
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
+fetch('https://api.radar.io/v1/users', {
+    method: 'PUT',
+    headers: {
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    },
+    body: 'description=Store #123&type=circle&coordinates=[-73.975363,40.783826]&radius=100'
+}).then(response => response.json())
+.then(data => {
+  console.log(data)
+})
+.catch(err => console.log(err));
+
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
     let google = window.google;
     let map = mapRef.current;
-    let lat = "40.748817";
-    let lng = "-73.985428";
+    let lat = "40.783826";
+    let lng = "-73.975363";
     const myLatlng = new google.maps.LatLng(lat, lng);
     const mapOptions = {
+      center: myLatlng,
+      zoom: 20,
       scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
       styles: [
         {
@@ -296,13 +310,13 @@ const MapWrapper = () => {
     });
   }, []);
   console.log("i am stupid")
-  return <div ref={mapRef} />;
+  return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 
 function Map() {
   return (
     <>
-      <div className="content">
+      <div className="content" >
         <Row>
           <Col md="12">
             <Card className="card-plain">

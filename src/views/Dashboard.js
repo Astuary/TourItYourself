@@ -67,8 +67,8 @@ function Dashboard(props) {
                     <h5 className="card-category">Total Shipments</h5>
                     <CardTitle tag="h2">Performance</CardTitle>
                   </Col>
-                  {/*<Col sm="6">
-                    <ButtonGroup
+                  <Col sm="6">
+                    {/*<ButtonGroup
                       className="btn-group-toggle float-right"
                       data-toggle="buttons"
                     >
@@ -123,8 +123,8 @@ function Dashboard(props) {
                           <i className="tim-icons icon-tap-02" />
                         </span>
                       </Button>
-                    </ButtonGroup>
-                  </Col>*/}
+                    </ButtonGroup>*/}
+                  </Col>
                 </Row>
               </CardHeader>
               {/*<CardBody>
