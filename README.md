@@ -2,22 +2,29 @@
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
+Tour-it Yourself dashboard is a beautiful web-app made with [Bootstrap 4](http://getbootstrap.com/), [Reacstrap](https://reactstrap.github.io/) and [React](https://reactjs.org/) ([create-react-app](https://github.com/facebook/create-react-app)), it extends the functionality of [Radar.io](https://radar.io). Radar.io provides SDKs and APIs for geofencing, trip tracking, geocoding, and search; to solve Shopping/Retail, Finances/Banking, Food/Dining, Travelling etc. problems related to geography or consumer's location. 
+
 ![Product Gif](./src/assets/demo/Dashboard.png)
 
-Tour-it Yourself dashboard is a beautiful web-app made with [Bootstrap 4](http://getbootstrap.com/), [Reacstrap](https://reactstrap.github.io/) and [React](https://reactjs.org/) ([create-react-app](https://github.com/facebook/create-react-app)). Admin Dashboard with a huge number of components built to fit together and look amazing. If you are looking for a tool to manage and visualize data about your business, this dashboard is the thing for you. It combines colors that are easy on the eye, spacious cards, beautiful typography, and graphics.
-Black Dashboard React comes packed with all plugins that you might need inside a project and documentation on how to get started. It is light and easy to use, and also very powerful.
+First we mention the use of GeoFencing, Tracking, Searching, Distance calculating, et cetera's applications in real life:
+🗺 Geofencing: Send a customized or tailored product advertisement to the consumers if they are nearby the store.
+🚦 Tracking: A person's stolen items or credit cards can be tracked. Alarms can be raised if a consumer is not aware about their stolen credit card but as soon as there's an attempt to withdraw money, Radar.io can detect that the consumer is too far to have made that transaction.
+🔎 Searching: If we can track a thing, we can search for it and require it. May it be your misplaced car keys or a wedding ring, nothing will be lost forever between the folds of your couch again.
+🧮 Distance: Precise distance between two locations can be calculated, taking into account the weather, the traffic, and the user's tendencies in driving.
+👨🏼‍💻 Geocoding: IP addresses are enough to get the location of a device. This can be put to good use in tracking down the crimes.
+🌆 Region exploration: Information about the region you are in, its landmarks, famous food shops, shopping centers can be extracted. Boosting up the Tourism Industry.
+🏗 Places: Get information about a store, what they are selling, are there any discounts, what's famous among their products or services.
 
-Black Dashboard React features over 16 individual components, giving you the freedom of choosing and combining. This means that there are thousands of possible combinations. All components can take variations in color, that you can easily modify using SASS files. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
+We have adaptively designed this user-friendly dashboard [Credit](https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md), which combines colors that are easy on the eye, spacious cards, beautiful typography, and graphics. Our goal was to be transparent with the end user in telling them what exactly we are tracking and why. It is light and easy to use, and also very powerful. Simplicity is the hardest thing to implement.
+
+React.js comes packed with all plugins that you might need inside a project and with the documentation on "how to get started". This web-app features over 16 individual components, giving you the freedom of choosing and combining; experimenting with the different styles from the thousands of possible combinations. All components can take variations in color, that you can easily modify using SASS files. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
+
 We thought about everything, so this dashboard comes with 2 versions, Dark Mode and Light Mode.
 
-Special thanks go for the owners of these plugins:
+Special thanks go for the owners of this plugin:
 - [Perfect Scrollbar](http://utatti.github.io/perfect-scrollbar/) for the nice scrollbars for windows.
-- [React Chartjs](http://jerairrest.github.io/react-chartjs-2/) for the wonderful wrapper for charts.
-- [Chartjs](https://www.chartjs.org/) for the wonderful charts.
 
-We are very excited to share this dashboard with you and we look forward to hearing your feedback!
-
-**Example Pages** We wanted to fully display the power of this dashboard, so the kit comes packed with examples showing you how to use the components.
+**Example Pages** We wanted to fully display the power of Radar.io, so the app comes packed with examples showing you how to use the components, and the Radar.io API.
 
 ## Table of Contents
 
