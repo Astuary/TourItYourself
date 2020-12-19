@@ -17,11 +17,26 @@ import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
+
+    let lat = "42.37642389170561";
+    let lng = "-72.51878613300975";
+
+
+    fetch('https://api.radar.io/v1/track', {
+    method: 'POST',
+    headers: {
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+    },
+    body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
     let google = window.google;
     let map = mapRef.current;
-    let lat = "40.783826";
-    let lng = "-73.975363";
-
+    
     const myLatlng = new google.maps.LatLng(lat, lng);
 
     // fetch('https://api.radar.io/v1/track', {
@@ -313,7 +328,6 @@ const MapWrapper = () => {
       infowindow.open(map, marker);
     });
   }, []);
-
   return <div style={{ height:"100%", width:"100%"}} ref={mapRef} />;
 };
 

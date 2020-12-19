@@ -68,7 +68,7 @@ function Dashboard(props) {
                     <CardTitle tag="h2">Performance</CardTitle>
                   </Col>
                   <Col sm="6">
-                    <ButtonGroup
+                    {/*<ButtonGroup
                       className="btn-group-toggle float-right"
                       data-toggle="buttons"
                     >
@@ -123,18 +123,18 @@ function Dashboard(props) {
                           <i className="tim-icons icon-tap-02" />
                         </span>
                       </Button>
-                    </ButtonGroup>
+                    </ButtonGroup>*/}
                   </Col>
                 </Row>
               </CardHeader>
-              <CardBody>
+              {/*<CardBody>
                 <div className="chart-area">
                   <Line
                     data={chartExample1[bigChartData]}
                     options={chartExample1.options}
                   />
                 </div>
-              </CardBody>
+              </CardBody>*/}
             </Card>
           </Col>
         </Row>

@@ -13337,7 +13337,8 @@ textarea.form-control {
   .card .map {
     border-radius: 0.2857rem; }
     .card .map.map-big {
-      height: 420px; }
+      height: 620px;
+      width: 620px; }
   .card.card-white {
     background: #ffffff; }
     .card.card-white .card-title {
@@ -13517,7 +13518,8 @@ textarea.form-control {
       font-size: 1rem; }
 
 .map {
-  height: 500px; }
+  height: 500px; 
+  width: 800px;}
 
 .card-user {
   overflow: hidden; }
