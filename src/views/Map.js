@@ -337,6 +337,20 @@ const MapWrapper = () => {
       radius: 40,
     });
 
+    fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+lng+'&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDGy3AHZRczP2YDTnkudUDofavKTvrpVz8', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': 'prj_test_pk_52f6dc31c2e45d85d09f72e27363003ce3a27ba3'
+      },
+      //body: 'deviceId=C305F2DB-56DC-404F-B6C1-BC52F0B680D8&userId=1&latitude='.concat(lat).concat('&longitude=').concat(lng).concat('&accuracy=65')
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+
     google.maps.event.addListener(marker, "click", function () {
       infowindow.open(map, marker);
     });
