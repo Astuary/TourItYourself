@@ -11,7 +11,7 @@
 */
 import React from "react";
 // reactstrap components
-import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
+import { Card, CardBody, CardHeader, CardSubtitle, CardTitle, Col, Row } from "reactstrap";
 import SliderInput from "components/SliderInput/SliderInput";
 
 const MapWrapper = (props) => {
@@ -379,13 +379,22 @@ function Map() {
     <>
       <div className="content" >
         <Row>
-          <Col xs="12">
-            <SliderInput
-              label={slider + 'meters'}
-              val={slider} 
-              min={5}
-              max={100}
-              onChange={setSlider} />
+          <Col xs="1" />
+          <Col xs="10">
+            <Card>
+              <CardHeader>
+                <CardTitle style={{ 'textAlign': 'center' }} tag="h3">Select Radious</CardTitle>
+                <CardSubtitle style={{ 'textAlign': 'center' }} tag="h4">{slider} Meters</CardSubtitle>
+              </CardHeader>
+              <CardBody>
+                <SliderInput
+                  val={slider} 
+                  min={5}
+                  max={100}
+                  onChange={setSlider} 
+                 />
+              </CardBody>
+            </Card>
           </Col>
         </Row>
         <Row>
