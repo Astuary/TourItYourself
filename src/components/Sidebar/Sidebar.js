@@ -65,7 +65,7 @@ function Sidebar(props) {
       logoImg = (
         <a
           href={logo.outterLink}
-          className="simple-text logo-mini"
+          className="simple-text logo-mini black-text"
           target="_blank"
           onClick={props.toggleSidebar}
         >
@@ -129,7 +129,7 @@ function Sidebar(props) {
                     key={key}
                   >
                     <NavLink
-                      to={prop.layout + prop.path}
+                      to={prop.path}
                       className="nav-link"
                       activeClassName="active"
                       onClick={props.toggleSidebar}

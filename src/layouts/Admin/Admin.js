@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -80,17 +80,13 @@ function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        );
-      } else {
-        return null;
-      }
+      return (
+        <Route
+          path={prop.path}
+          component={prop.component}
+          key={key}
+        />
+      );
     });
   };
   const getBrandText = (path) => {
@@ -123,7 +119,7 @@ function Admin(props) {
               />
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="*" to="/admin/dashboard" />
+                <Redirect from="/" to="/dashboard" />
               </Switch>
               {
                 // we don't want the Footer to be rendered on map page
