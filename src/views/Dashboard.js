@@ -67,7 +67,7 @@ function Dashboard(props) {
                     <h5 className="card-category">Total Shipments</h5>
                     <CardTitle tag="h2">Performance</CardTitle>
                   </Col>
-                  <Col sm="6">
+                  {/*<Col sm="6">
                     <ButtonGroup
                       className="btn-group-toggle float-right"
                       data-toggle="buttons"
@@ -124,17 +124,17 @@ function Dashboard(props) {
                         </span>
                       </Button>
                     </ButtonGroup>
-                  </Col>
+                  </Col>*/}
                 </Row>
               </CardHeader>
-              <CardBody>
+              {/*<CardBody>
                 <div className="chart-area">
                   <Line
                     data={chartExample1[bigChartData]}
                     options={chartExample1.options}
                   />
                 </div>
-              </CardBody>
+              </CardBody>*/}
             </Card>
           </Col>
         </Row>

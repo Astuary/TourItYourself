@@ -295,6 +295,7 @@ const MapWrapper = () => {
       infowindow.open(map, marker);
     });
   }, []);
+  console.log("i am stupid")
   return <div ref={mapRef} />;
 };
 
