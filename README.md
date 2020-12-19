@@ -35,7 +35,7 @@ Special thanks go for the owners of this plugin:
 
 ## Table of Contents
 
-* [Versions](#versions)
+* [Functionality](#functionality)
 * [Demo](#demo)
 * [Quick Start](#quick-start)
 * [Documentation](#documentation)
@@ -48,15 +48,11 @@ Special thanks go for the owners of this plugin:
 * [Useful Links](#useful-links)
 
 
-## Versions
+## Functionality
 
-[<img src="./github-assets/html.png" width="60" height="60" />](https://www.creative-tim.com/product/black-dashboard)
-[<img src="./github-assets/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/black-dashboard-react)[<img src="./github-assets/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-black-dashboard)
-
-
-| HTML | React | Vue |
-| --- | --- | --- |
-| [![Black Dashboard HTML](https://s3.amazonaws.com/creativetim_bucket/products/93/thumb/opt_bd_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard) | [![Black Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/136/thumb/opt_bd_react.jpg)](https://www.creative-tim.com/product/black-dashboard-react) | [![Vue Black Dashboard](https://s3.amazonaws.com/creativetim_bucket/products/99/thumb/opt_bd_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-black-dashboard) |
+| Dashboard Map | Dashboard Memo and Suggestions | Events | Notifications | Security | User Settings and Preferences |
+| --- | --- | --- | --- | --- | --- |
+| [![Dashboard Map](./src/assets/demo/Dashboard.png)](https://) | [![Dashboard Memo and Suggestions](./src/assets/demo/DashboardTables.png)](https://) | [![Events](./src/assets/demo/Events.png)](https://) |  [![Notification](./src/assets/demo/Notification.png)](https://) | [![Security](./src/assets/demo/Security.png)](https://) | [![User Settings and Preferences](./src/assets/demo/User.png)](https://) |
 
 ## Demo
 
