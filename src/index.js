@@ -17,9 +17,9 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import AdminLayout from "layouts/Admin/Admin.js";
+import AdminLayout from "layouts/Admin.js";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
@@ -33,7 +33,10 @@ ReactDOM.render(
   <ThemeContextWrapper>
     <BackgroundColorWrapper>
       <BrowserRouter>
-        <AdminLayout />
+        <Switch>
+          <Route path="/" component={AdminLayout} />
+          <Redirect from="*" to="/" />
+        </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>
   </ThemeContextWrapper>,
