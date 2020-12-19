@@ -9,10 +9,11 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+import SliderInput from "components/SliderInput/SliderInput";
 import React from "react";
 
 // reactstrap components
-import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
+import { Card, CardHeader, CardBody, Row, Col, CardTitle } from "reactstrap";
 
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
@@ -332,9 +333,30 @@ const MapWrapper = () => {
 };
 
 function Map() {
+  const [slider, setSlider] = React.useState(5);
   return (
     <>
       <div className="content" >
+        <Row>
+          <Col xs="2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Slider Output</CardTitle>
+              </CardHeader>
+              <CardBody>
+                {slider}
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="10">
+            <SliderInput
+              label="Select Range"
+              val={slider} 
+              min={5}
+              max={15}
+              onChange={setSlider} />
+          </Col>
+        </Row>
         <Row>
           <Col md="12">
             <Card className="card-plain">
