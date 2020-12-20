@@ -2,6 +2,8 @@
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/ntTzYgFtgfc)
+
 Tour-it Yourself dashboard is a beautiful web-app made with [Bootstrap 4](http://getbootstrap.com/), [Reacstrap](https://reactstrap.github.io/) and [React](https://reactjs.org/) ([create-react-app](https://github.com/facebook/create-react-app)), it extends the functionality of [Radar.io](https://radar.io). Radar.io provides SDKs and APIs for geofencing, trip tracking, geocoding, and search; to solve Shopping/Retail, Finances/Banking, Food/Dining, Travelling etc. problems related to geography or consumer's location. 
 
 ![Product Gif](./src/assets/demo/Dashboard.png)
@@ -56,12 +58,20 @@ Special thanks go for the owners of this plugin:
 
 ## Demo
 
-| Dashboard | User Profile | Tables | Maps | Notification |
-| --- | --- | --- | --- | --- |
-| [![Start page](./github-assets/dashboard-page.png)](https://demos.creative-tim.com/black-dashboard-react/#/dashboard) | [![User profile page](./github-assets/user-page.png)](https://demos.creative-tim.com/black-dashboard-react/#/user-page) | [![Tables page ](./github-assets/table-page.png)](https://demos.creative-tim.com/black-dashboard-react/#/table-list) | [![Maps Page](./github-assets/maps-page.png)](https://demos.creative-tim.com/black-dashboard-react/#/maps) | [![Notification page](./github-assets/notifications-page.png)](https://demos.creative-tim.com/black-dashboard-react/#/notifications)
+- Dashboard Map: On the dashboard, we can see that Radar.io is detecting user's current location. User can choose the radius within which they should be sent recommendations. Once the radius is set, shops nearby will be suggested on the following criteria:
+1. if other user's with similar preferences have also visited this shop, or 
+2. if the shop is advertising some products or services with attractive offers.
 
-[View More](https://demos.creative-tim.com/black-dashboard-react/#/dashboard).
+- Dashboard Memo and Suggestions: The suggestions will be shown in form of a checklist, making it easier for the users to keep track of the next places to visit. The shops will be reviewed by other users and we can also see how far each shop is, making it easier for the customer to plan their trip.
 
+- Events: We have used Radar.io to geofence all the shops and the users, while Google Cloud Platform has been used to utilize google maps api to draw the markers and regions.
+A user can also be shown what are the current common events going on in the area tehy are in.
+
+- Security: Next is security where they can link a digital transaction method to be tracked. The app will notify the user of all the transcations made, along with how far the user was at the time they were made. If there are transactions made so far away from the user that they are suspiciously fraudulent and out-of-nature for the user, the app will send alerts.
+
+- Notifications: These are the 5 types of notifications: which are ranging from simple product offers to danger alerts for suspicious transaction activities.
+
+- User Settings and Preferences: With radar.io insights api, the app can learn the user's day-to-day commuting routes, it can also learn whether the user is at home, or office or in transit, by looking at their location. The home to office and office to home route times will also be estimated by the current weather condition, traffic, and user's driving patterns.
 
 ## Quick start
 
@@ -176,8 +186,8 @@ If you have questions or need help integrating the product please contact us.
 
 ## Useful Links
 
-This project is deployed on [!site](https://)
+This project is deployed on [!site](https://tourityyourself.web.app)
 
 ## Acknowledgement
 
-Thank you HackUMass VIII for hosting the fun virtual hackathon. I look forward to coming here next year.
+Thank you HackUMass VIII for hosting the fun virtual hackathon. I look forward to coming here next year. Thank you to MLH for having cool resources like Radar.io and GCP so I could build this geofencing app for the tourists.
