@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
-![YouTube Demo](https://youtu.be/ntTzYgFtgfc)
+[YouTube Demo](https://youtu.be/ntTzYgFtgfc)
 
 Tour-it Yourself dashboard is a beautiful web-app made with [Bootstrap 4](http://getbootstrap.com/), [Reacstrap](https://reactstrap.github.io/) and [React](https://reactjs.org/) ([create-react-app](https://github.com/facebook/create-react-app)), it extends the functionality of [Radar.io](https://radar.io). Radar.io provides SDKs and APIs for geofencing, trip tracking, geocoding, and search; to solve Shopping/Retail, Finances/Banking, Food/Dining, Travelling etc. problems related to geography or consumer's location. 
 
@@ -58,7 +58,7 @@ Special thanks go for the owners of this plugin:
 
 ## Demo
 
-![YouTube Demo](https://youtu.be/ntTzYgFtgfc)
+[YouTube Demo](https://youtu.be/ntTzYgFtgfc)
 
 - **Dashboard Map**: On the dashboard, we can see that Radar.io is detecting user's current location. User can choose the radius within which they should be sent recommendations. Once the radius is set, shops nearby will be suggested on the following criteria:
 1. if other user's with similar preferences have also visited this shop, or 
@@ -186,7 +186,7 @@ If you have questions or need help integrating the product please contact us.
 
 ## Useful Links
 
-This project is deployed on [!site](https://tourityyourself.web.app)
+This project is deployed on [site](https://tourityyourself.web.app)
 
 ## Acknowledgement
 
