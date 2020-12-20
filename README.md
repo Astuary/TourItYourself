@@ -134,8 +134,10 @@ black-dashboard-react
     │   ├── Navbars
     │   │   ├── AdminNavbar.js
     │   │   └── RTLNavbar.js
-    │   └── Sidebar
-    │       └── Sidebar.js
+    │   ├─── Sidebar
+    │   │   └── Sidebar.js
+    │   └── Slider
+    │       └── Slider.js
     ├── layouts
     │   ├── Admin
     │   │   └── Admin.js
@@ -145,12 +147,9 @@ black-dashboard-react
     │   └── charts.js
     └── views
         ├── Dashboard.js
-        ├── Icons.js
-        ├── Map.js
+        ├── Events.js
         ├── Notifications.js
-        ├── Rtl.js
-        ├── TableList.js
-        ├── Typography.js
+        ├── Security.js
         └── UserProfile.js
 ```
 
